@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KaryaNiaga - Solusi Bisnis dan Pengembangan UMKM</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #181225;
+            --accent: #c084fc;
+            --accent-hover: #a855f7;
+            --text-main: #e9e3f5;
+            --text-light: #c4b8d8;
+            --bg-light: #100c18;
+            --white: #211830;
+            --border: #49345f;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--text-main);
+            background: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* TOP BAR */
+        .top-bar {
+            background: #0a0710;
+            color: #e9d5ff;
+            font-size: 13px;
+            padding: 8px 0;
+        }
+
+        .top-bar-container {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* NAVBAR */
+        header {
+            background: #181225;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 20px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            font-size: 14px;
+            color: #eee5fa;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: var(--accent-hover);
+            color: #ffffff;
+            padding: 11px 22px;
+            border-radius: 6px;
+            font-weight: 600;
+            border: none;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: #9333ea;
+            box-shadow: 0 0 18px rgba(192,132,252,0.35);
+        }
+
+        /* HERO */
+        .hero {
+            background:
+                linear-gradient(rgba(16,12,24,0.82), rgba(16,12,24,0.9)),
+                url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=80')
+                center/cover;
+            color: #ffffff;
+            padding: 120px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            max-width: 850px;
+            margin: 0 auto 20px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #ffffff;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 650px;
+            margin: 0 auto 35px;
+            color: #e2d5f3;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            border: 2px solid #d8b4fe;
+            color: #ffffff;
+            padding: 10px 22px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-outline:hover {
+            background: #d8b4fe;
+            color: #181225;
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 90px 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-header span {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .section-header h2 {
+            font-size: 35px;
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        /* TENTANG KAMI */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 400px;
+            background:
+                url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80')
+                center/cover;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .about-text h3 {
+            font-size: 28px;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: #d2c5e3;
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+
+        .about-text .section-header {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .about-text .section-header h3 {
+            color: #ffffff;
+            margin-bottom: 0;
+        }
+
+        /* STATISTIK */
+        .stats-section {
+            background: #21152f;
+            color: #ffffff;
+            padding: 60px 20px;
+            border-top: 1px solid #382447;
+            border-bottom: 1px solid #382447;
+        }
+
+        .stats-grid {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 40px;
+            color: #d8b4fe;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .stat-item p {
+            color: #d2c5e3;
+            font-size: 14px;
+        }
+
+        /* LAYANAN */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: #211830;
+            padding: 35px 30px;
+            border-radius: 12px;
+            border: 1px solid #49345f;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(168,85,247,0.13);
+            border-color: #a855f7;
+        }
+
+        .service-icon {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: #c4b8d8;
+            font-size: 15px;
+        }
+
+        /* TESTIMONI */
+        .testimonials {
+            background: #181225;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: #261b35;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #49345f;
+            transition: 0.3s;
+        }
+
+        .testimonial-card:hover {
+            border-color: #a855f7;
+            transform: translateY(-4px);
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            color: #e0d5ed;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        .client-info h4 {
+            font-size: 16px;
+            color: #ffffff;
+        }
+
+        .client-info span {
+            font-size: 13px;
+            color: #c4b8d8;
+        }
+
+        /* KONTAK */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            background: #211830;
+            border: 1px solid #49345f;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .contact-info {
+            background: #2a1b3d;
+            color: #ffffff;
+            padding: 45px;
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .contact-info p {
+            color: #e0d5ed;
+            margin-bottom: 30px;
+            font-size: 15px;
+        }
+
+        .info-item {
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #f3e8ff;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-form-container {
+            padding: 45px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            color: #ffffff;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background: #160f20;
+            color: #ffffff;
+            border: 1px solid #59416f;
+            border-radius: 6px;
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #a99ab9;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #c084fc;
+            box-shadow: 0 0 0 2px rgba(192,132,252,0.12);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #090710;
+            color: #c4b8d8;
+            padding: 40px 20px 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            border-bottom: 1px solid #382447;
+            padding-bottom: 30px;
+        }
+
+        .footer-logo {
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        /* RESPONSIVE */
+        @media(max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 90px 20px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .about-grid,
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                height: 280px;
+            }
+
+            .contact-info,
+            .contact-form-container {
+                padding: 30px 24px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .section-header h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top-bar">
+        <div class="top-bar-container">
+            <span>📞 Hubungi Kami: +62 811-2233-4455</span>
+            <span>✉️ halo@mikuxmatt.id</span>
+        </div>
+    </div>
+
+    <header>
+        <div class="nav-container">
+            <a href="#home" class="logo">Karya<span>Niaga</span>.</a>
+            <ul class="nav-links">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#about">Tentang Kami</a></li>
+                <li><a href="#services">Layanan</a></li>
+                <li><a href="#testimonials">Testimoni</a></li>
+                <li><a href="#contact" class="btn-primary">Konsultasi Bisnis</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>Kembangkan Bisnis Anda Bersama KaryaNiaga</h1>
+        <p>Kami membantu pelaku usaha mengembangkan strategi pemasaran, mengelola operasional, dan memanfaatkan teknologi untuk meningkatkan daya saing bisnis.</p>
+        <div class="hero-btns">
+            <a href="#services" class="btn-primary">Lihat Layanan</a>
+            <a href="#contact" class="btn-outline">Diskusikan Bisnis Anda</a>
+        </div>
+    </section>
+
+    <div class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>10+</h3>
+                <p>Tahun Mendampingi Usaha</p>
+            </div>
+            <div class="stat-item">
+                <h3>250+</h3>
+                <p>Mitra Usaha Berkembang</p>
+            </div>
+            <div class="stat-item">
+                <h3>98%</h3>
+                <p>Kepuasan Mitra Usaha</p>
+            </div>
+            <div class="stat-item">
+                <h3>24/7</h3>
+                <p>Dukungan Operasional</p>
+            </div>
+        </div>
+    </div>
+
+    <section id="about" class="container">
+        <div class="about-grid">
+            <div class="about-image" role="img" aria-label="Tim bisnis sedang berdiskusi"></div>
+            <div class="about-text">
+                <div class="section-header">
+                    <span>Tentang KaryaNiaga</span>
+                    <h3>Partner Usaha untuk Tumbuh dan Berkembang</h3>
+                </div>
+                <p>KaryaNiaga hadir untuk membantu usaha kecil dan menengah menghadapi persaingan pasar. Kami memberikan arahan praktis agar pemilik usaha dapat meningkatkan efisiensi, menjangkau pelanggan baru, dan mengembangkan penjualan.</p>
+                <p>Dengan pendekatan yang mudah diterapkan, kami berkomitmen mendampingi pelaku usaha dalam merencanakan langkah bisnis yang terarah dan berkelanjutan.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="container" style="padding-top: 0;">
+        <div class="section-header">
+            <span>Layanan KaryaNiaga</span>
+            <h2>Dukungan yang Tepat untuk Usaha Anda</h2>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>Perencanaan dan Strategi Usaha</h3>
+                <p>Menyusun tujuan usaha, mengenali peluang pasar, dan merencanakan langkah pengembangan bisnis secara terukur.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">⚙️</div>
+                <h3>Pengelolaan Operasional</h3>
+                <p>Membantu merapikan proses kerja, mengelola waktu, dan menggunakan sumber daya usaha dengan lebih efisien.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">💻</div>
+                <h3>Pemasaran Digital</h3>
+                <p>Mendukung promosi melalui media sosial dan platform digital agar produk lebih mudah dikenal calon pelanggan.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span>Cerita Mitra Usaha</span>
+                <h2>Pengalaman Mitra Bersama KaryaNiaga</h2>
+            </div>
+
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>"Pendampingan KaryaNiaga membantu kami menyusun strategi penjualan yang lebih terarah. Proses kerja jadi lebih rapi dan usaha kami semakin berkembang."</p>
+                    <div class="client-info">
+                        <h4>Andi Pratama</h4>
+                        <span>Pemilik, Toko Sukses Jaya</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p>"Saran pemasaran digital dari KaryaNiaga membantu produk kami menjangkau lebih banyak pelanggan. Materinya jelas dan mudah diterapkan."</p>
+                    <div class="client-info">
+                        <h4>Dina Maharani</h4>
+                        <span>Pemilik, Dapur Rasa</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p>"Kami jadi lebih memahami kebutuhan pelanggan dan peluang pasar baru. KaryaNiaga menjadi partner yang membantu usaha kami terus maju."</p>
+                    <div class="client-info">
+                        <h4>Rizky Saputra</h4>
+                        <span>Pemilik, Berkah Kreatif</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container">
+        <div class="section-header">
+            <span>Hubungi Kami</span>
+            <h2>Ceritakan Tantangan Usaha Anda</h2>
+        </div>
+
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h3>Informasi Kontak</h3>
+                <p>Isi formulir atau hubungi kami untuk membicarakan kebutuhan usaha dan mendapatkan informasi layanan KaryaNiaga.</p>
+                <div class="info-item">📍 Jl. Merdeka No. 25, Jakarta</div>
+                <div class="info-item">📞 +62 811-2233-4455</div>
+                <div class="info-item">✉️ halo@karyaniaga.id</div>
+                <div class="info-item">🕒 Senin - Jumat: 08.00 - 17.00 WIB</div>
+            </div>
+
+            <div class="contact-form-container">
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Nama Lengkap</label>
+                        <input type="text" id="name" name="name" placeholder="Masukkan nama Anda" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Alamat Email</label>
+                        <input type="email" id="email" name="email" placeholder="nama@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Nomor Telepon / WhatsApp</label>
+                        <input type="tel" id="phone" name="phone" placeholder="0812xxxxxxxx" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Pesan / Kebutuhan Usaha</label>
+                        <textarea id="message" name="message" placeholder="Ceritakan kebutuhan atau tantangan usaha Anda..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary" style="width: 100%;">Kirim Pesan</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">KaryaNiaga.</div>
+            <p>Partner usaha untuk membantu UMKM berkembang melalui strategi bisnis dan pemasaran digital.</p>
+        </div>
+        <p>&copy; 2026 KaryaNiaga Indonesia. Hak Cipta Dilindungi.</p>
+    </footer>
+
+</body>
+</html>
